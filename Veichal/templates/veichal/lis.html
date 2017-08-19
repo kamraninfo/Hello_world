@@ -1,0 +1,54 @@
+{% extends "veichal/index.html" %}
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-offset-2 col-md-8">
+
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+    <div class="panel-heading "><h3>Cars List   <span class="fa fa-car"></span></h3> </div>
+  <div class="panel-body">
+
+  </div>
+
+   <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Model</td>
+        <td>YearMade</td>
+        <td>Color</td>
+        <td>Price</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+        <tbody>
+        {% for car in car_list %}
+            <tr>
+                 <td>{{car.carid}}</td>
+                <td> {{car.CarModel}}</td>
+                <td>{{car.year}}</td>
+                <td>{{car.color}}</td>
+                <td> {{car.Price}}</td>
+                <td> <a href = "{% url 'veichal:car-detail' car.carid %}" class="btn btn-primary">Detail</a></td>
+            </tr>
+    {% endfor %}
+
+
+         </tbody>
+
+
+    </table>
+
+</div>
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+
